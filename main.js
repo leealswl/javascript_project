@@ -9,37 +9,6 @@
 // 유저가 이미 입력한 숫자를 또 입력하면 알려준다. 기회 깍지 않는다.
 //
 
-
-
-// let computerNum= 0;
-// let playButton=document.getElementById("play-button");
-// let userInput=document.getElementById("user-input");
-// let resultArea=document.getElementById("result-area");
-// let chances = 5;
-
-// playButton.addEventListener("click",play);
-
-// function pickRandomNum() {
-//     computerNum = Math.floor(Math.random()*100) +1; //+1 하는 이유 0~99 ->1~100
-//     console.log(computerNum); 
-// }
-// function play() {
-//     let userValue=userInput.value;
-
-//     if (userValue < computerNum) {
-//         resultArea.textContent="UP";
-        
-//     } else if (userValue > computerNum) {
-//         resultArea.textContent="DOWN";
-    
-//     } else {
-//         resultArea.textContent="정답";
-//     };
-
-
-// }
-// pickRandomNum();
-
 let computerNum = 0;
 let playButton = document.getElementById("play-button");
 let userInput = document.getElementById("user-input");
@@ -51,6 +20,13 @@ let history = [];
 
 playButton.addEventListener("click", play);
 resetButton.addEventListener("click", resetGame);
+
+//엔터버튼옵션
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        play();
+    }
+});
 
 function pickRandomNum() {
     computerNum = Math.floor(Math.random() * 100) + 1; // 1~100
